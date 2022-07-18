@@ -123,7 +123,7 @@ function HomeScreen(props) {
 const styles = StyleSheet.create({
   cardTop: {
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'row'
   },
   container: {
     backgroundColor: '#ed1e24',
