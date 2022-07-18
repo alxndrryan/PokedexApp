@@ -17,7 +17,7 @@ const pokemon = [
     image:
       'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/120.png',
     type: {
-      name: 'Normal'
+      name: 'Water'
     },
     flavor_text_entries: [
       {
@@ -26,7 +26,29 @@ const pokemon = [
       }
     ],
     weight: 30,
-    height: 10
+    height: 10,
+    moves: [
+      {
+        move: {
+          name: 'Headbutt'
+        }
+      },
+      {
+        move: {
+          name: 'Take-Down'
+        }
+      },
+      {
+        move: {
+          name: 'Water-Gun'
+        }
+      },
+      {
+        move: {
+          name: 'Hydro-Pump'
+        }
+      }
+    ]
   },
   {
     order: 1,
@@ -67,27 +89,36 @@ function HomeScreen(props) {
         />
         <SubmitButton title="Search" />
       </Form>
-      <View>
-        <Image
-          style={styles.pokemon}
-          source={{
-            uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/120.png'
-          }}
-        />
-        <Text>
-          {pokemon[0].name} #{pokemon[0].order}
-        </Text>
+      <View style={styles.pokemonCard}>
+        <View style={styles.cardTop}>
+          <Text style={styles.pokemonData}>
+            <Text>
+              {pokemon[0].name} #{pokemon[0].order}
+            </Text>
 
-        <Text>{pokemon[0].type.name}</Text>
-        <Text>
-          {pokemon[0].height} dm {pokemon[0].weight} lbs
-        </Text>
+            <Text>{pokemon[0].type.name}</Text>
+            <Text>{pokemon[0].height} dm</Text>
+            <Text>{pokemon[0].weight} lbs</Text>
+            <Text>
+              Abilities {pokemon[0].moves[0].move.name},{' '}
+              {pokemon[0].moves[1].move.name}, {pokemon[0].moves[2].move.name},{' '}
+              {pokemon[0].moves[3].move.name}
+            </Text>
+          </Text>
+        </View>
+        <View style={styles.cardBottom}>
+          <Text>{pokemon[0].flavor_text_entries[0].flavor_text}</Text>
+        </View>
       </View>
     </Screen>
   );
 }
 
 const styles = StyleSheet.create({
+  cardTop: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
   container: {
     backgroundColor: '#ed1e24',
     padding: 10
@@ -99,10 +130,15 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 40
   },
-  pokemon: {
+  pokemonCard: {
+    backgroundColor: '#fff'
+  },
+  pokemonData: {
+    width: 100
+  },
+  pokemonImg: {
     width: 100,
     height: 100,
-    alignSelf: 'center',
     marginTop: 50,
     marginBottom: 40,
     borderColor: colors.secondary,
