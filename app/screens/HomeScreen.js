@@ -91,6 +91,12 @@ function HomeScreen(props) {
       </Form>
       <View style={styles.pokemonCard}>
         <View style={styles.cardTop}>
+          <Image
+            style={styles.pokemonImg}
+            source={{
+              uri: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/red-blue/120.png'
+            }}
+          />
           <Text style={styles.pokemonData}>
             <Text>
               {pokemon[0].name} #{pokemon[0].order}
