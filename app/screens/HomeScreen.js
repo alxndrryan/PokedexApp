@@ -68,6 +68,8 @@ const pokemon = [
 ];
 
 function HomeScreen(props) {
+  let flavorText = pokemon[0].flavor_text_entries[0].flavor_text;
+  let newFlavorText = flavorText.replace('\n', ' ').replace('\f', ' ');
   return (
     <Screen style={styles.container}>
       <Image
@@ -113,7 +115,7 @@ function HomeScreen(props) {
           </Text>
         </View>
         <View style={styles.cardBottom}>
-          <Text>{pokemon[0].flavor_text_entries[0].flavor_text}</Text>
+          <Text>{newFlavorText}</Text>
         </View>
       </View>
     </Screen>
@@ -123,7 +125,9 @@ function HomeScreen(props) {
 const styles = StyleSheet.create({
   cardTop: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: 30
   },
   container: {
     backgroundColor: '#ed1e24',
@@ -145,7 +149,6 @@ const styles = StyleSheet.create({
   pokemonImg: {
     width: 100,
     height: 100,
-    marginTop: 50,
     marginBottom: 40,
     borderColor: colors.secondary,
     borderWidth: 4
