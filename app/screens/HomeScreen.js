@@ -54,7 +54,7 @@ const pokemon = [
     order: 1,
     name: 'Bulbasaur',
     image:
-      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/120.png',
+      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/1.png',
     type: {
       name: 'grass'
     },
